@@ -1,0 +1,10 @@
+export { Config } from "./manifests/Config";
+export { Network } from "./manifests/Network";
+export { Service } from "./manifests/Service";
+export { ServicePort } from "./manifests/ServicePort";
+export { ServiceVolume } from "./manifests/ServiceVolume";
+export { Version } from "./manifests/Version";
+export { Volume } from "./manifests/Volume";
+export { makeConfig } from "./utils/self/manifest";
+export { validate } from "./utils/self/manifest";
+export { isManifest } from "./utils/self/manifest";

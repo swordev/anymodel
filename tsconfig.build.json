@@ -1,0 +1,11 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/docker-compose"
+    },
+    {
+      "path": "packages/nginx"
+    }
+  ]
+}

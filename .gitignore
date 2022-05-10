@@ -1,0 +1,6 @@
+.history
+.pnpm-store
+node_modules
+coverage
+lib
+tsconfig.tsbuildinfo

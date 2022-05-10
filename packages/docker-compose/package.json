@@ -1,0 +1,13 @@
+{
+  "name": "@anymodel/docker-compose",
+  "version": "0.0.1",
+  "description": "Docker Compose models.",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "watch": "tsc -b -w"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  }
+}

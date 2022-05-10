@@ -1,0 +1,16 @@
+{
+  "name": "@anymodel/nginx",
+  "version": "0.0.1",
+  "description": "NGINX models.",
+  "scripts": {
+    "build": "tsc -b",
+    "clean": "tsc -b --clean",
+    "watch": "tsc -b -w"
+  },
+  "dependencies": {
+    "ts-essentials": "^9.1.2"
+  },
+  "publishConfig": {
+    "directory": "lib"
+  }
+}
