@@ -42,6 +42,7 @@ export class ServiceVolume {
     }
   }
   toJSON() {
-    return `${this.source}:${this.target}${this.readOnly ? `:ro` : ""}`;
+    const source = resolveSource(this.source)
+    return `${source}:${this.target}${this.readOnly ? `:ro` : ""}`;
   }
 }

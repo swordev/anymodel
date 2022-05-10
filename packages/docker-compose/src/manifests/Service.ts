@@ -114,6 +114,11 @@ export class Service {
           typeof v === "string" ? v : v.join(":")
         ),
       }),
+      ...(this.spec.volumes && {
+        volumes: this.spec.volumes.filter(
+          (v) => typeof v === "string" || v.source !== false
+        ),
+      }),
       ...(this.spec.volumes_from && {
         volumes_from: this.spec.volumes_from.map(resolveName),
       }),
