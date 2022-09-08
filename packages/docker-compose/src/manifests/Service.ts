@@ -2,6 +2,33 @@ import type { Network } from "./Network";
 import type { ServicePort } from "./ServicePort";
 import type { ServiceVolume } from "./ServiceVolume";
 
+export type ServiceLoggingMap = {
+  none: any;
+  local: any;
+  "json-file": {
+    "max-size"?: string;
+    "max-file"?: string | number;
+  };
+  syslog: {
+    "syslog-address"?: string;
+  };
+  journald: any;
+  gelf: any;
+  fluentd: any;
+  awslogs: any;
+  splunk: any;
+  etwlogs: any;
+  gcplogs: any;
+  logentries: any;
+};
+
+export type ServiceLogging = {
+  [K in keyof ServiceLoggingMap]: {
+    driver: K;
+    options?: ServiceLoggingMap[K];
+  };
+}[keyof ServiceLoggingMap];
+
 /**
  * @link https://linux.die.net/man/7/capabilities
  */
@@ -52,41 +79,75 @@ type Cap =
 
 export type ServiceSpec = {
   build?: {
+    args?: Record<string, string> | string[];
+    cache_from?: string[];
     context?: string;
     dockerfile?: string;
-    args?: Record<string, string>;
+    labels?: string[];
+    network?: string;
+    shm_size?: string | number;
+    target?: string;
   };
-  command?: string | string[];
-  entrypoint?: string | string[];
-  image?: string;
-  labels?: string[];
-  container_name?: string;
-  logging?: {
-    driver: "json-file";
-    options: {
-      "max-size": string;
-      "max-file": string | number;
-    };
-  };
-  env_file?: string[];
-  environment?: Record<string, string>;
-  depends_on?: (string | Service)[];
   cap_add?: (Cap | "all")[];
   cap_drop?: Cap[];
-  working_dir?: string;
-  restart?: "no" | "on-failure" | "always" | "unless-stopped";
+  cgroup_parent?: string;
+  command?: string | string[];
+  container_name?: string;
+  credential_spec?: {
+    config?: string;
+    file?: string;
+    registry?: string;
+  };
+  depends_on?: (string | Service)[];
+  devices?: string | string[];
+  dns_search?: string | string[];
+  dns?: string | string[];
+  entrypoint?: string | string[];
+  env_file?: string | string[];
+  environment?: Record<string, string> | string[];
+  expose?: string[];
+  external_links?: string[];
   extra_hosts?: (string | [string, string])[];
-  networks?: (string | Network)[];
+  healthcheck?: {
+    disable?: boolean;
+    interval?: string;
+    retries?: number;
+    start_period?: string;
+    test?: string | string[];
+    timeout?: string;
+  };
+  image?: string;
+  init?: boolean;
+  labels?: string[];
+  logging?: ServiceLogging;
   network_mode?:
     | "bridge"
     | "host"
     | "none"
     | { service: string | Service }
     | { container: string };
-  privileged?: boolean;
+  networks?: (string | Network)[];
+  pid?: string;
   ports?: (string | ServicePort)[];
-  volumes?: (string | ServiceVolume)[];
+  privileged?: boolean;
+  profiles?: string[];
+  restart?: "no" | "on-failure" | "always" | "unless-stopped";
+  security_opt?: string[];
+  stop_grace_period?: string;
+  stop_signal?: string;
+  sysctls?: Record<string, string | number> | string[];
+  tmpfs?: string | string[];
+  ulimits?: {
+    nproc?: number;
+    nofile?: {
+      hard?: number;
+      soft?: number;
+    };
+  };
+  userns_mode?: string;
   volumes_from?: (string | Service)[];
+  volumes?: (string | ServiceVolume)[];
+  working_dir?: string;
 };
 
 export class Service {
