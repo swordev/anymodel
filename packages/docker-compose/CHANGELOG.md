@@ -1,5 +1,11 @@
 # @anymodel/docker-compose
 
+## 0.1.0
+
+### Minor Changes
+
+- [`51d8927`](https://github.com/swordev/anymodel/commit/51d892721c3b33578d6df4f1b94b629f289083f1) Thanks [@juanrgm](https://github.com/juanrgm)! - Add missing service specs
+
 ## 0.0.2
 
 ### Patch Changes
