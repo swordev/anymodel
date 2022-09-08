@@ -8,7 +8,7 @@
     "watch": "tsc -b -w"
   },
   "dependencies": {
-    "ts-essentials": "^9.1.2"
+    "ts-essentials": "^9.3.0"
   },
   "publishConfig": {
     "directory": "lib"
