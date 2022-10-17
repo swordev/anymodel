@@ -30,6 +30,7 @@ const directiveConfig = makeContextDirectiveConfig({
     "fastcgi_param",
     "fastcgi_read_timeout",
   ],
+  httpHeaders: ["add_header", "add_trailer", "expires"],
   httpGzip: [
     "gzip",
     "gzip_buffers",

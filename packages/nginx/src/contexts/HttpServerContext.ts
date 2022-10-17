@@ -29,6 +29,7 @@ const directiveConfig = makeContextDirectiveConfig({
     "gzip_types",
     "gzip_vary",
   ],
+  httpHeaders: ["add_header", "add_trailer", "expires"],
   httpIndex: ["index"],
   httpProxy: [
     "proxy_set_header",

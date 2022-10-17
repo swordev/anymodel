@@ -12,6 +12,7 @@ export const directiveConfig = makeContextDirectiveConfig({
   http: ["sendfile", "root"],
   httpFastcgi: ["fastcgi_pass"],
   httpGzip: ["gzip"],
+  httpHeaders: ["add_header", "add_trailer", "expires"],
   httpProxy: ["proxy_pass"],
   httpLog: ["access_log"],
   httpRewrite: [

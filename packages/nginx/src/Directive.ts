@@ -3,6 +3,7 @@ import { HttpAccessDirective } from "./directives/HttpAccessDirective";
 import { HttpDirective } from "./directives/HttpDirective";
 import { HttpFastcgiDirective } from "./directives/HttpFastcgiDirective";
 import { HttpGzipDirective } from "./directives/HttpGzipDirective";
+import { HttpHeadersDirective } from "./directives/HttpHeadersDirective";
 import { HttpIndexDirective } from "./directives/HttpIndexDirective";
 import { HttpLogDirective } from "./directives/HttpLogDirective";
 import { HttpProxyDirective } from "./directives/HttpProxyDirective";
@@ -17,6 +18,7 @@ export const directiveMap = {
   [HttpAccessDirective.type]: HttpAccessDirective,
   [HttpFastcgiDirective.type]: HttpFastcgiDirective,
   [HttpGzipDirective.type]: HttpGzipDirective,
+  [HttpHeadersDirective.type]: HttpHeadersDirective,
   [HttpIndexDirective.type]: HttpIndexDirective,
   [HttpLogDirective.type]: HttpLogDirective,
   [HttpProxyDirective.type]: HttpProxyDirective,
@@ -31,6 +33,7 @@ export type DirectiveMap = {
   [HttpAccessDirective.type]: HttpAccessDirective;
   [HttpFastcgiDirective.type]: HttpFastcgiDirective;
   [HttpGzipDirective.type]: HttpGzipDirective;
+  [HttpHeadersDirective.type]: HttpHeadersDirective;
   [HttpIndexDirective.type]: HttpIndexDirective;
   [HttpLogDirective.type]: HttpLogDirective;
   [HttpProxyDirective.type]: HttpProxyDirective;
@@ -63,6 +66,7 @@ export type PickAllDirectiveKeys<T extends ContextDirectiveConfig> =
     PickDirectiveKeys<T, "httpAccess"> &
     PickDirectiveKeys<T, "httpFastcgi"> &
     PickDirectiveKeys<T, "httpGzip"> &
+    PickDirectiveKeys<T, "httpHeaders"> &
     PickDirectiveKeys<T, "httpIndex"> &
     PickDirectiveKeys<T, "httpLog"> &
     PickDirectiveKeys<T, "httpProxy"> &
