@@ -49,6 +49,10 @@ export type HttpDirectiveSpec = {
    */
   try_files?: string;
   /**
+   * @link https://nginx.org/en/docs/http/ngx_http_core_module.html#etag
+   */
+  etag?: boolean;
+  /**
    * @link https://nginx.org/en/docs/http/ngx_http_core_module.html#http
    */
   http?: (HttpContext | HttpContextDirectiveSpec)[];
@@ -84,6 +88,7 @@ export class HttpDirective extends AbstractDirective<HttpDirectiveSpec> {
   static config: Config<HttpDirectiveSpec> = {
     client_max_body_size: null,
     default_type: null,
+    etag: null,
     http: (items) => {
       const ns = include<{
         HttpContext: typeof HttpContext;
