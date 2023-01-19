@@ -1,5 +1,13 @@
 # @anymodel/nginx
 
+## 0.2.0
+
+### Minor Changes
+
+- [`3f974b7`](https://github.com/swordev/anymodel/commit/3f974b7f4502d798e7d66d01bdc46e884736303d) Thanks [@juanrgm](https://github.com/juanrgm)! - Allow custom directives
+
+- [`3fb8df0`](https://github.com/swordev/anymodel/commit/3fb8df070ce0ebd8e03926352610f6c603c3f9d2) Thanks [@juanrgm](https://github.com/juanrgm)! - Add `etag` to http directive
+
 ## 0.1.0
 
 ### Minor Changes
