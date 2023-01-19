@@ -16,7 +16,7 @@ export abstract class AbstractDirective<T> {
     level: number,
     key: string,
     value: unknown,
-    config: Config<any>
+    config?: Config<any>
   ) {
     const configCb = config?.[key];
     if (configCb) {

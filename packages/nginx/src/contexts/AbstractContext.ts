@@ -57,7 +57,6 @@ export class AbstractContext<TSpec, TConfig = void> {
         ] as Config<any>;
       }
     }
-    throw new Error(`Directive key not found: ${directiveKey}`);
   }
 
   toString(level = 0): string {
