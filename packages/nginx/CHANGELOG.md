@@ -1,5 +1,11 @@
 # @anymodel/nginx
 
+## 0.2.1
+
+### Patch Changes
+
+- [`c9bd623`](https://github.com/swordev/anymodel/commit/c9bd6232fa91e91170dc4e3e7ff7223a5cfb34ff) Thanks [@juanrgm](https://github.com/juanrgm)! - Fix etag directive
+
 ## 0.2.0
 
 ### Minor Changes
