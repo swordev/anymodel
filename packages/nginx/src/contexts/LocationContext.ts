@@ -22,6 +22,7 @@ const directiveConfig = makeContextDirectiveConfig({
     "try_files",
     "keepalive_timeout",
     "root",
+    "etag",
   ],
   httpAccess: ["allow", "deny"],
   httpFastcgi: [

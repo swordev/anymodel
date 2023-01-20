@@ -13,6 +13,7 @@ export const directiveConfig = makeContextDirectiveConfig({
     "server",
     "keepalive_timeout",
     "root",
+    "etag"
   ],
   httpAccess: ["allow", "deny"],
   httpFastcgi: ["fastcgi_index", "fastcgi_param", "fastcgi_read_timeout"],
