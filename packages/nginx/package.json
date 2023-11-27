@@ -1,6 +1,6 @@
 {
   "name": "@anymodel/nginx",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "NGINX models.",
   "scripts": {
     "build": "tsc -b",
