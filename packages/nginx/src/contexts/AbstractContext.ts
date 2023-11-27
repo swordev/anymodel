@@ -52,9 +52,7 @@ export class AbstractContext<TSpec, TConfig = void> {
         contextType as keyof typeof selfDirectiveConfig
       ] as string[] | undefined;
       if (directiveKeys?.includes(directiveKey)) {
-        return directiveMap[contextType as keyof typeof selfDirectiveConfig][
-          "config"
-        ] as Config<any>;
+        return (directiveMap as any)[contextType]["config"] as Config<any>;
       }
     }
   }

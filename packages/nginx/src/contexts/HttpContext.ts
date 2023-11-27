@@ -13,7 +13,7 @@ export const directiveConfig = makeContextDirectiveConfig({
     "server",
     "keepalive_timeout",
     "root",
-    "etag"
+    "etag",
   ],
   httpAccess: ["allow", "deny"],
   httpFastcgi: ["fastcgi_index", "fastcgi_param", "fastcgi_read_timeout"],
@@ -46,6 +46,7 @@ export const directiveConfig = makeContextDirectiveConfig({
     "ssl_session_tickets",
     "ssl_session_timeout",
   ],
+  httpMap: ["map", "map_hash_bucket_size", "map_hash_max_size"],
 });
 
 export type HttpContextDirectiveSpec = PickAllDirectiveKeys<

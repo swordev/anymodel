@@ -6,6 +6,7 @@ import { HttpGzipDirective } from "./directives/HttpGzipDirective";
 import { HttpHeadersDirective } from "./directives/HttpHeadersDirective";
 import { HttpIndexDirective } from "./directives/HttpIndexDirective";
 import { HttpLogDirective } from "./directives/HttpLogDirective";
+import { HttpMapDirective } from "./directives/HttpMapDirective";
 import { HttpProxyDirective } from "./directives/HttpProxyDirective";
 import { HttpRewriteDirective } from "./directives/HttpRewriteDirective";
 import { HttpSslDirective } from "./directives/HttpSslDirective";
@@ -25,6 +26,7 @@ export const directiveMap = {
   [HttpRewriteDirective.type]: HttpRewriteDirective,
   [HttpSslDirective.type]: HttpSslDirective,
   [HttpUpstreamDirective.type]: HttpUpstreamDirective,
+  [HttpMapDirective.type]: HttpMapDirective,
 };
 
 export type DirectiveMap = {
@@ -40,6 +42,7 @@ export type DirectiveMap = {
   [HttpRewriteDirective.type]: HttpRewriteDirective;
   [HttpSslDirective.type]: HttpSslDirective;
   [HttpUpstreamDirective.type]: HttpUpstreamDirective;
+  [HttpMapDirective.type]: HttpMapDirective;
 };
 
 export type ContextDirectiveConfig = {
@@ -72,4 +75,5 @@ export type PickAllDirectiveKeys<T extends ContextDirectiveConfig> =
     PickDirectiveKeys<T, "httpProxy"> &
     PickDirectiveKeys<T, "httpRewrite"> &
     PickDirectiveKeys<T, "httpSsl"> &
-    PickDirectiveKeys<T, "httpUpstream">;
+    PickDirectiveKeys<T, "httpUpstream"> &
+    PickDirectiveKeys<T, "httpMap">;
