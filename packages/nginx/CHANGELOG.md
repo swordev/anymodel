@@ -1,5 +1,11 @@
 # @anymodel/nginx
 
+## 0.3.0
+
+### Minor Changes
+
+- [`84d9e89`](https://github.com/swordev/anymodel/commit/84d9e8992d55b0410642f4be50c6783c66dcf599) Thanks [@juanrgm](https://github.com/juanrgm)! - Add HTTP map directive
+
 ## 0.2.1
 
 ### Patch Changes
