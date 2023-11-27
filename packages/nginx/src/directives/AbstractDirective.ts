@@ -5,7 +5,8 @@ export type Config<T> = Required<{
     | null
     | ((
         value: NonNullable<T[K]>,
-        level: number
+        level: number,
+        settigs: { semicolon: boolean }
       ) => string | (string | AbstractContext<any, any>)[]);
 }>;
 
@@ -19,8 +20,9 @@ export abstract class AbstractDirective<T> {
     config?: Config<any>
   ) {
     const configCb = config?.[key];
+    const settings = { semicolon: true };
     if (configCb) {
-      value = configCb(value, level);
+      value = configCb(value, level, settings);
     }
 
     const values: any[] = [];
@@ -43,7 +45,7 @@ export abstract class AbstractDirective<T> {
         if (v instanceof AbstractContext) {
           return v.toString(level);
         } else {
-          return `${padding}${key} ${v};`;
+          return `${padding}${key} ${v}${settings.semicolon ? `;` : ""}`;
         }
       })
       .join("\n");

@@ -25,7 +25,7 @@ export type HttpMapDirectiveSpec = {
 export class HttpMapDirective extends AbstractDirective<HttpMapDirectiveSpec> {
   static type = "httpMap" as const;
   static config: Config<HttpMapDirectiveSpec> = {
-    map: (dir, level) =>
+    map: (dir, level, settings) =>
       dir.map((item) => {
         const pad = " ".repeat(level + 1);
         const values = Object.entries(item.values)
@@ -34,6 +34,7 @@ export class HttpMapDirective extends AbstractDirective<HttpMapDirectiveSpec> {
             return result;
           }, [] as string[])
           .join("\n");
+        settings.semicolon = false;
         return `${item.source} ${item.variable} {\n${values}\n${pad}}`;
       }),
     map_hash_bucket_size: null,
