@@ -1,5 +1,11 @@
 # @anymodel/nginx
 
+## 0.4.0
+
+### Minor Changes
+
+- [`afaf97e`](https://github.com/swordev/anymodel/commit/afaf97e8e3944a0421b83ec50746dd20928223c6) Thanks [@juanrgm](https://github.com/juanrgm)! - Allow location directive spec without config
+
 ## 0.3.1
 
 ### Patch Changes
