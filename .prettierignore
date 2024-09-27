@@ -1,8 +1,5 @@
 pnpm-lock.yaml
 # .gitignore
-.history
-.pnpm-store
 node_modules
-coverage
-lib
-tsconfig.tsbuildinfo
+packages/*/lib
+packages/*/tsconfig.tsbuildinfo
