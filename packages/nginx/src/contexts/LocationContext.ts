@@ -76,16 +76,21 @@ export class LocationContext extends AbstractContext<
 > {
   static directiveConfig = directiveConfig;
   type = "location" as const;
-  protected onRenderConfig() {
+  protected override onName(): string | null {
+    return this.config ? this.type : "";
+  }
+  protected override onRenderConfig() {
     const config = this.config;
     if (Array.isArray(config)) {
       const [comparator, uri] = config;
       return `${comparator} ${uri}`;
     } else if (typeof config === "string") {
       return config;
-    } else {
+    } else if (config) {
       const comparator = config.comparator ? ` ${config.comparator} ` : "";
       return `${comparator}${config.uri}`;
+    } else {
+      return "";
     }
   }
 }
