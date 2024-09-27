@@ -32,7 +32,7 @@ export class ServicePort {
   toJSON() {
     if (this.source && this.target) {
       return `${this.renderSource(this.source)}:${this.renderPort(
-        this.target
+        this.target,
       )}`;
     } else {
       return `${this.renderPort(this.target)}`;

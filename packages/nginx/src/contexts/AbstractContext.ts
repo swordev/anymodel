@@ -9,7 +9,7 @@ export class AbstractContext<TSpec, TConfig = void> {
   constructor(config: TConfig, data?: TSpec[] | TSpec);
   constructor(
     configOrSpec: TConfig extends void ? TSpec[] | TSpec : TConfig,
-    data?: Partial<TSpec>[] | TSpec
+    data?: Partial<TSpec>[] | TSpec,
   ) {
     if (arguments.length === 2) {
       this.config = configOrSpec as any;
@@ -71,7 +71,7 @@ export class AbstractContext<TSpec, TConfig = void> {
                 this.onName()?.length ? level + 1 : level,
                 key,
                 item[key],
-                config
+                config,
               );
               result.push(value);
             }
@@ -80,7 +80,7 @@ export class AbstractContext<TSpec, TConfig = void> {
           }
           return result;
         })
-        .join("\n")
+        .join("\n"),
     );
   }
 }

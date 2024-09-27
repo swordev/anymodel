@@ -21,7 +21,7 @@ export class ServiceVolume {
   constructor(
     readonly source: string | Volume | false,
     readonly target: string,
-    readonly readOnly?: boolean
+    readonly readOnly?: boolean,
   ) {}
   path(...paths: string[]) {
     const target = this.target;
@@ -34,7 +34,7 @@ export class ServiceVolume {
       if (source !== false && isRelativePath) {
         return posix.join(
           target,
-          posix.relative(source, posix.join(...strPaths))
+          posix.relative(source, posix.join(...strPaths)),
         );
       } else {
         return posix.join(target, ...strPaths);
@@ -42,7 +42,7 @@ export class ServiceVolume {
     }
   }
   toJSON() {
-    const source = resolveSource(this.source)
+    const source = resolveSource(this.source);
     return `${source}:${this.target}${this.readOnly ? `:ro` : ""}`;
   }
 }

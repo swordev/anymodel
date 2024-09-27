@@ -15,7 +15,7 @@ export class Network {
     readonly data: {
       name: string;
       spec: NetworkSpec;
-    }
+    },
   ) {
     this.name = data.name;
     this.type = "network";

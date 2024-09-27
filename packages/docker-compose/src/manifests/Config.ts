@@ -22,7 +22,7 @@ export class Config<T extends ConfigData = ConfigData> {
     const result: Manifest[] = [];
     const toArray = <T>(value: Record<string, T | undefined> | T[]) =>
       (Array.isArray(value) ? value : Object.values(value)).filter(
-        (v) => typeof v !== "undefined"
+        (v) => typeof v !== "undefined",
       ) as T[];
     if (this.data.version) {
       result.push(this.data.version);
@@ -41,7 +41,7 @@ export class Config<T extends ConfigData = ConfigData> {
     }
     if (this.data.configs) {
       result.push(
-        ...toArray(this.data.configs).flatMap((c) => c.toManifests())
+        ...toArray(this.data.configs).flatMap((c) => c.toManifests()),
       );
     }
     return result;
@@ -64,22 +64,31 @@ export class Config<T extends ConfigData = ConfigData> {
         version: data.versions[0].toJSON(),
       }),
       ...(!!data.networks.length && {
-        networks: data.networks.reduce((networks, network) => {
-          networks[network.name] = network.toJSON();
-          return networks;
-        }, {} as Record<string, Network["spec"]>),
+        networks: data.networks.reduce(
+          (networks, network) => {
+            networks[network.name] = network.toJSON();
+            return networks;
+          },
+          {} as Record<string, Network["spec"]>,
+        ),
       }),
       ...(!!data.volumes.length && {
-        volumes: data.volumes?.reduce((volumes, volume) => {
-          volumes[volume.name] = volume.toJSON();
-          return volumes;
-        }, {} as Record<string, Volume["spec"]>),
+        volumes: data.volumes?.reduce(
+          (volumes, volume) => {
+            volumes[volume.name] = volume.toJSON();
+            return volumes;
+          },
+          {} as Record<string, Volume["spec"]>,
+        ),
       }),
       ...(!!data.services.length && {
-        services: data.services?.reduce((services, service) => {
-          services[service.name] = service.toJSON();
-          return services;
-        }, {} as Record<string, Service["spec"]>),
+        services: data.services?.reduce(
+          (services, service) => {
+            services[service.name] = service.toJSON();
+            return services;
+          },
+          {} as Record<string, Service["spec"]>,
+        ),
       }),
     };
   }

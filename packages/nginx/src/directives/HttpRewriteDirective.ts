@@ -56,7 +56,7 @@ export class HttpRewriteDirective extends AbstractDirective<HttpRewriteDirective
         IfContext: typeof IfContext;
       }>("./../contexts/IfContext");
       return items.map((v) =>
-        v instanceof ns.IfContext ? v : new ns.IfContext(v.config, v.spec)
+        v instanceof ns.IfContext ? v : new ns.IfContext(v.config, v.spec),
       );
     },
     return: (v) => (Array.isArray(v) ? v : [v]).join(" "),

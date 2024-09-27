@@ -61,7 +61,7 @@ export class CoreDirective extends AbstractDirective<CoreDirectiveSpec> {
         EventsContext: typeof EventsContext;
       }>("./../contexts/EventsContext");
       return items.map((v) =>
-        v instanceof ns.EventsContext ? v : new ns.EventsContext(v)
+        v instanceof ns.EventsContext ? v : new ns.EventsContext(v),
       );
     },
     error_log: null,

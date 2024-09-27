@@ -50,7 +50,7 @@ export type ContextDirectiveConfig = {
 };
 
 export function makeContextDirectiveConfig<T extends ContextDirectiveConfig>(
-  options: T
+  options: T,
 ): typeof options {
   return options as any;
 }
@@ -58,7 +58,7 @@ export function makeContextDirectiveConfig<T extends ContextDirectiveConfig>(
 export type PickDirectiveKeys<
   TConfig extends ContextDirectiveConfig,
   TKey extends keyof DirectiveMap,
-  TSpec extends Record<string, any> = DirectiveMap[TKey]["spec"]
+  TSpec extends Record<string, any> = DirectiveMap[TKey]["spec"],
 > = TConfig[TKey] extends readonly (keyof TSpec)[]
   ? Pick<TSpec, ElementOf<TConfig[TKey]>>
   : {};

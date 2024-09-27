@@ -6,7 +6,7 @@ export type Config<T> = Required<{
     | ((
         value: NonNullable<T[K]>,
         level: number,
-        settigs: { semicolon: boolean }
+        settigs: { semicolon: boolean },
       ) => string | (string | AbstractContext<any, any>)[]);
 }>;
 
@@ -17,7 +17,7 @@ export abstract class AbstractDirective<T> {
     level: number,
     key: string,
     value: unknown,
-    config?: Config<any>
+    config?: Config<any>,
   ) {
     const configCb = config?.[key];
     const settings = { semicolon: true };
@@ -59,7 +59,7 @@ export abstract class AbstractDirective<T> {
         level,
         key,
         this.spec[key],
-        config
+        config,
       );
       result.push(value);
     }

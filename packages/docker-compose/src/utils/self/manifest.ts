@@ -23,7 +23,7 @@ export function validate(manifests: Manifest[]) {
         versionSpec = manifest.spec;
       } else if (versionSpec !== manifest.spec) {
         throw new Error(
-          `Found differents versions: ${versionSpec} != ${manifest.spec}`
+          `Found differents versions: ${versionSpec} != ${manifest.spec}`,
         );
       }
     } else {
@@ -50,7 +50,7 @@ export function makeRequiredConfigEnv(name: string, ifEmpty?: boolean) {
 export function makDefaultsConfigEnv(
   name: string,
   value: string,
-  ifEmpty?: boolean
+  ifEmpty?: boolean,
 ) {
   if (ifEmpty) {
     return `\${${name}:-${value}}`;

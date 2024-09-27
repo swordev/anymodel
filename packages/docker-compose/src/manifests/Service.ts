@@ -158,7 +158,7 @@ export class Service {
     readonly data: {
       name: string;
       spec: ServiceSpec;
-    }
+    },
   ) {
     this.name = data.name;
     this.type = "service";
@@ -172,12 +172,12 @@ export class Service {
       ...this.spec,
       ...(this.spec.extra_hosts && {
         extra_hosts: this.spec.extra_hosts.map((v) =>
-          typeof v === "string" ? v : v.join(":")
+          typeof v === "string" ? v : v.join(":"),
         ),
       }),
       ...(this.spec.volumes && {
         volumes: this.spec.volumes.filter(
-          (v) => typeof v === "string" || v.source !== false
+          (v) => typeof v === "string" || v.source !== false,
         ),
       }),
       ...(this.spec.volumes_from && {
@@ -188,10 +188,10 @@ export class Service {
           typeof this.spec.network_mode === "string"
             ? this.spec.network_mode
             : "service" in this.spec.network_mode
-            ? `service:${resolveName(this.spec.network_mode.service)}`
-            : "container" in this.spec.network_mode
-            ? `container:${this.spec.network_mode.container}`
-            : undefined,
+              ? `service:${resolveName(this.spec.network_mode.service)}`
+              : "container" in this.spec.network_mode
+                ? `container:${this.spec.network_mode.container}`
+                : undefined,
       }),
     } as any;
   }

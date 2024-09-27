@@ -94,7 +94,7 @@ export class HttpDirective extends AbstractDirective<HttpDirectiveSpec> {
         HttpContext: typeof HttpContext;
       }>("./../contexts/HttpContext");
       return items.map((v) =>
-        v instanceof ns.HttpContext ? v : new ns.HttpContext(v)
+        v instanceof ns.HttpContext ? v : new ns.HttpContext(v),
       );
     },
     listen: null,
@@ -105,7 +105,7 @@ export class HttpDirective extends AbstractDirective<HttpDirectiveSpec> {
       return items.map((v) =>
         v instanceof ns.LocationContext
           ? v
-          : new ns.LocationContext(v.config, v.spec)
+          : new ns.LocationContext(v.config, v.spec),
       );
     },
     resolver: null,
@@ -115,7 +115,7 @@ export class HttpDirective extends AbstractDirective<HttpDirectiveSpec> {
         HttpServerContext: typeof HttpServerContext;
       }>("./../contexts/HttpServerContext");
       return items.map((v) =>
-        v instanceof ns.HttpServerContext ? v : new ns.HttpServerContext(v)
+        v instanceof ns.HttpServerContext ? v : new ns.HttpServerContext(v),
       );
     },
     server_name: (v) => (typeof v === "string" ? v : v.join(" ")),
