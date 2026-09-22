@@ -1,16 +1,16 @@
-import { CoreDirective } from "./directives/CoreDirective";
-import { HttpAccessDirective } from "./directives/HttpAccessDirective";
-import { HttpDirective } from "./directives/HttpDirective";
-import { HttpFastcgiDirective } from "./directives/HttpFastcgiDirective";
-import { HttpGzipDirective } from "./directives/HttpGzipDirective";
-import { HttpHeadersDirective } from "./directives/HttpHeadersDirective";
-import { HttpIndexDirective } from "./directives/HttpIndexDirective";
-import { HttpLogDirective } from "./directives/HttpLogDirective";
-import { HttpMapDirective } from "./directives/HttpMapDirective";
-import { HttpProxyDirective } from "./directives/HttpProxyDirective";
-import { HttpRewriteDirective } from "./directives/HttpRewriteDirective";
-import { HttpSslDirective } from "./directives/HttpSslDirective";
-import { HttpUpstreamDirective } from "./directives/HttpUpstreamDirective";
+import { CoreDirective } from "./directives/CoreDirective.js";
+import { HttpAccessDirective } from "./directives/HttpAccessDirective.js";
+import { HttpDirective } from "./directives/HttpDirective.js";
+import { HttpFastcgiDirective } from "./directives/HttpFastcgiDirective.js";
+import { HttpGzipDirective } from "./directives/HttpGzipDirective.js";
+import { HttpHeadersDirective } from "./directives/HttpHeadersDirective.js";
+import { HttpIndexDirective } from "./directives/HttpIndexDirective.js";
+import { HttpLogDirective } from "./directives/HttpLogDirective.js";
+import { HttpMapDirective } from "./directives/HttpMapDirective.js";
+import { HttpProxyDirective } from "./directives/HttpProxyDirective.js";
+import { HttpRewriteDirective } from "./directives/HttpRewriteDirective.js";
+import { HttpSslDirective } from "./directives/HttpSslDirective.js";
+import { HttpUpstreamDirective } from "./directives/HttpUpstreamDirective.js";
 import { ElementOf } from "ts-essentials";
 
 export const directiveMap = {

@@ -1,5 +1,9 @@
-import { makeContextDirectiveConfig, PickAllDirectiveKeys } from "../Directive";
-import { AbstractContext } from "./AbstractContext";
+import {
+  makeContextDirectiveConfig,
+  PickAllDirectiveKeys,
+} from "../Directive.js";
+import { CustomDirectiveSpec } from "../directives/CustomDirective.js";
+import { AbstractContext } from "./AbstractContext.js";
 
 export type IfContextConfig =
   | {
@@ -25,9 +29,8 @@ export const directiveConfig = makeContextDirectiveConfig({
   ],
 });
 
-export type IfContextDirectiveSpec = PickAllDirectiveKeys<
-  typeof directiveConfig
->;
+export type IfContextDirectiveSpec = CustomDirectiveSpec &
+  PickAllDirectiveKeys<typeof directiveConfig>;
 export class IfContext extends AbstractContext<
   IfContextDirectiveSpec,
   IfContextConfig

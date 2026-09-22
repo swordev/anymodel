@@ -1,5 +1,9 @@
-import { makeContextDirectiveConfig, PickAllDirectiveKeys } from "../Directive";
-import { AbstractContext } from "./AbstractContext";
+import {
+  makeContextDirectiveConfig,
+  PickAllDirectiveKeys,
+} from "../Directive.js";
+import { CustomDirectiveSpec } from "../directives/CustomDirective.js";
+import { AbstractContext } from "./AbstractContext.js";
 
 export const directiveConfig = makeContextDirectiveConfig({
   core: ["include", "error_log", "server_tokens"],
@@ -49,9 +53,8 @@ export const directiveConfig = makeContextDirectiveConfig({
   httpMap: ["map", "map_hash_bucket_size", "map_hash_max_size"],
 });
 
-export type HttpContextDirectiveSpec = PickAllDirectiveKeys<
-  typeof directiveConfig
->;
+export type HttpContextDirectiveSpec = CustomDirectiveSpec &
+  PickAllDirectiveKeys<typeof directiveConfig>;
 export class HttpContext extends AbstractContext<HttpContextDirectiveSpec> {
   static directiveConfig = directiveConfig;
   type = "http" as const;

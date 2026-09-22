@@ -1,6 +1,7 @@
-import { AbstractDirective, Config } from "./AbstractDirective";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpSslDirectiveSpec = {
+export type HttpSslDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_certificate
    */

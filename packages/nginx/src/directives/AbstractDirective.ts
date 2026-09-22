@@ -1,4 +1,5 @@
-import { AbstractContext } from "../contexts/AbstractContext";
+import { AbstractContext } from "../contexts/AbstractContext.js";
+import { formatValue } from "../utils/string.js";
 
 export type Config<T> = Required<{
   [K in keyof T]:
@@ -55,13 +56,19 @@ export abstract class AbstractDirective<T> {
     const result: string[] = [];
     const config: Config<any> = (this as any)["constructor"]["config"];
     for (const key in this.spec) {
-      const value = AbstractDirective.renderValue(
-        level,
-        key,
-        this.spec[key],
-        config,
-      );
-      result.push(value);
+      if (key.startsWith("$")) {
+        const value = this.spec[key];
+        if (typeof value === "string")
+          result.push(formatValue(value, level + 1));
+      } else {
+        const value = AbstractDirective.renderValue(
+          level,
+          key,
+          this.spec[key],
+          config,
+        );
+        result.push(value);
+      }
     }
     return result.join("\n");
   }

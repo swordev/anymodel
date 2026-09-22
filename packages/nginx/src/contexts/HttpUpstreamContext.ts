@@ -1,5 +1,9 @@
-import { makeContextDirectiveConfig, PickAllDirectiveKeys } from "../Directive";
-import { AbstractContext } from "./AbstractContext";
+import {
+  makeContextDirectiveConfig,
+  PickAllDirectiveKeys,
+} from "../Directive.js";
+import { CustomDirectiveSpec } from "../directives/CustomDirective.js";
+import { AbstractContext } from "./AbstractContext.js";
 
 export type HttpUpstreamContextConfig = {
   name: string;
@@ -10,9 +14,8 @@ const directiveConfig = makeContextDirectiveConfig({
   httpUpstream: ["server"],
 });
 
-export type HttpUpstreamContextDirectiveSpec = PickAllDirectiveKeys<
-  typeof directiveConfig
->;
+export type HttpUpstreamContextDirectiveSpec = CustomDirectiveSpec &
+  PickAllDirectiveKeys<typeof directiveConfig>;
 
 export class HttpUpstreamContext extends AbstractContext<
   HttpUpstreamContextDirectiveSpec,

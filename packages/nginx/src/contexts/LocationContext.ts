@@ -1,5 +1,9 @@
-import { makeContextDirectiveConfig, PickAllDirectiveKeys } from "../Directive";
-import { AbstractContext } from "./AbstractContext";
+import {
+  makeContextDirectiveConfig,
+  PickAllDirectiveKeys,
+} from "../Directive.js";
+import { CustomDirectiveSpec } from "../directives/CustomDirective.js";
+import { AbstractContext } from "./AbstractContext.js";
 
 type Comparator = "=" | "~" | "~*" | "^~";
 
@@ -63,9 +67,8 @@ const directiveConfig = makeContextDirectiveConfig({
   httpLog: ["access_log"],
 });
 
-export type LocationContextDirectiveSpec = PickAllDirectiveKeys<
-  typeof directiveConfig
->;
+export type LocationContextDirectiveSpec = CustomDirectiveSpec &
+  PickAllDirectiveKeys<typeof directiveConfig>;
 
 /**
  * @link https://nginx.org/en/docs/http/ngx_http_core_module.html#location

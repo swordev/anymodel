@@ -1,5 +1,9 @@
-import { makeContextDirectiveConfig, PickAllDirectiveKeys } from "../Directive";
-import { AbstractContext } from "./AbstractContext";
+import {
+  makeContextDirectiveConfig,
+  PickAllDirectiveKeys,
+} from "../Directive.js";
+import { CustomDirectiveSpec } from "../directives/CustomDirective.js";
+import { AbstractContext } from "./AbstractContext.js";
 
 const directiveConfig = makeContextDirectiveConfig({
   core: ["include", "error_log", "server_tokens"],
@@ -57,9 +61,8 @@ const directiveConfig = makeContextDirectiveConfig({
   ],
 });
 
-export type HttpServerContextDirectiveSpec = PickAllDirectiveKeys<
-  typeof directiveConfig
->;
+export type HttpServerContextDirectiveSpec = CustomDirectiveSpec &
+  PickAllDirectiveKeys<typeof directiveConfig>;
 
 export class HttpServerContext extends AbstractContext<HttpServerContextDirectiveSpec> {
   static directiveConfig = directiveConfig;

@@ -1,6 +1,7 @@
-import { AbstractDirective, Config } from "./AbstractDirective";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpFastcgiDirectiveSpec = {
+export type HttpFastcgiDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_fastcgi_module.html#fastcgi_pass
    */

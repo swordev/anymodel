@@ -1,15 +1,16 @@
-import { ContextDirectiveConfig, directiveMap } from "../Directive";
-import { AbstractDirective, Config } from "../directives/AbstractDirective";
+import { ContextDirectiveConfig, directiveMap } from "../Directive.js";
+import { AbstractDirective, Config } from "../directives/AbstractDirective.js";
+import { formatValue } from "../utils/string.js";
 
 export class AbstractContext<TSpec, TConfig = void> {
   type!: string;
   readonly data: TSpec[];
   readonly config!: TConfig;
-  constructor(data?: TSpec[] | TSpec);
-  constructor(config: TConfig, data?: TSpec[] | TSpec);
+  constructor(data?: TSpec[] | TSpec | string);
+  constructor(config: TConfig, data?: TSpec[] | TSpec | string);
   constructor(
     configOrSpec: TConfig extends void ? TSpec[] | TSpec : TConfig,
-    data?: Partial<TSpec>[] | TSpec,
+    data?: Partial<TSpec>[] | TSpec | string,
   ) {
     if (arguments.length === 2) {
       this.config = configOrSpec as any;
@@ -57,23 +58,30 @@ export class AbstractContext<TSpec, TConfig = void> {
     }
   }
 
-  toString(level = 0): string {
+  toString(inLevel = 0): string {
     const items = Array.isArray(this.data) ? this.data : [this.data];
+    const level = this.onName()?.length ? inLevel + 1 : inLevel;
     return this.render(
-      level,
+      inLevel,
       items
         .flatMap((item) => {
           const result: string[] = [];
           if (item && typeof item === "object") {
             for (const key in item) {
-              const config = this.findDirectiveConfig(key);
-              const value = AbstractDirective.renderValue(
-                this.onName()?.length ? level + 1 : level,
-                key,
-                item[key],
-                config,
-              );
-              result.push(value);
+              if (key.startsWith("$")) {
+                const value = item[key];
+                if (typeof value === "string")
+                  result.push(formatValue(value, level));
+              } else {
+                const config = this.findDirectiveConfig(key);
+                const value = AbstractDirective.renderValue(
+                  level,
+                  key,
+                  item[key],
+                  config,
+                );
+                result.push(value);
+              }
             }
           } else {
             throw new Error(`Invalid value`);

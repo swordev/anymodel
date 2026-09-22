@@ -1,6 +1,7 @@
-import { AbstractDirective, Config } from "./AbstractDirective";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpHeadersDirectiveSpec = {
+export type HttpHeadersDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_headers_module.html#add_header
    */

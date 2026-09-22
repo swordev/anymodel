@@ -1,11 +1,11 @@
 import {
   EventsContext,
   EventsContextDirectiveSpec,
-} from "../contexts/EventsContext";
-import { include } from "../util/require";
-import { AbstractDirective, Config } from "./AbstractDirective";
+} from "../contexts/EventsContext.js";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type CoreDirectiveSpec = {
+export type CoreDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/ngx_core_module.html#user
    */
@@ -57,11 +57,8 @@ export class CoreDirective extends AbstractDirective<CoreDirectiveSpec> {
     worker_processes: null,
     worker_rlimit_nofile: null,
     events: (items) => {
-      const ns = include<{
-        EventsContext: typeof EventsContext;
-      }>("./../contexts/EventsContext");
       return items.map((v) =>
-        v instanceof ns.EventsContext ? v : new ns.EventsContext(v),
+        v instanceof EventsContext ? v : new EventsContext(v),
       );
     },
     error_log: null,

@@ -1,6 +1,6 @@
-import type { Network } from "./Network";
-import type { ServicePort } from "./ServicePort";
-import type { ServiceVolume } from "./ServiceVolume";
+import type { Network } from "./Network.js";
+import type { ServicePort } from "./ServicePort.js";
+import type { ServiceVolume } from "./ServiceVolume.js";
 
 export type ServiceLoggingMap = {
   none: any;

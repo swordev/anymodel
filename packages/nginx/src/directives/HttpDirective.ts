@@ -1,17 +1,20 @@
-import { HttpContext, HttpContextDirectiveSpec } from "../contexts/HttpContext";
+import {
+  HttpContext,
+  HttpContextDirectiveSpec,
+} from "../contexts/HttpContext.js";
 import {
   HttpServerContext,
   HttpServerContextDirectiveSpec,
-} from "../contexts/HttpServerContext";
+} from "../contexts/HttpServerContext.js";
 import {
   LocationContext,
   LocationContextConfig,
   LocationContextDirectiveSpec,
-} from "../contexts/LocationContext";
-import { include } from "../util/require";
-import { AbstractDirective, Config } from "./AbstractDirective";
+} from "../contexts/LocationContext.js";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpDirectiveSpec = {
+export type HttpDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_core_module.html#default_type
    */
@@ -90,32 +93,23 @@ export class HttpDirective extends AbstractDirective<HttpDirectiveSpec> {
     default_type: null,
     etag: null,
     http: (items) => {
-      const ns = include<{
-        HttpContext: typeof HttpContext;
-      }>("./../contexts/HttpContext");
       return items.map((v) =>
-        v instanceof ns.HttpContext ? v : new ns.HttpContext(v),
+        v instanceof HttpContext ? v : new HttpContext(v),
       );
     },
     listen: null,
     location: (items) => {
-      const ns = include<{
-        LocationContext: typeof LocationContext;
-      }>("./../contexts/LocationContext");
       return items.map((v) =>
-        v instanceof ns.LocationContext
+        v instanceof LocationContext
           ? v
-          : new ns.LocationContext(v.config, v.spec),
+          : new LocationContext(v.config, v.spec),
       );
     },
     resolver: null,
     sendfile: null,
     server: (items) => {
-      const ns = include<{
-        HttpServerContext: typeof HttpServerContext;
-      }>("./../contexts/HttpServerContext");
       return items.map((v) =>
-        v instanceof ns.HttpServerContext ? v : new ns.HttpServerContext(v),
+        v instanceof HttpServerContext ? v : new HttpServerContext(v),
       );
     },
     server_name: (v) => (typeof v === "string" ? v : v.join(" ")),

@@ -1,6 +1,6 @@
-export { EventsContext } from "./contexts/EventsContext";
-export { HttpContext } from "./contexts/HttpContext";
-export { HttpServerContext } from "./contexts/HttpServerContext";
-export { HttpUpstreamContext } from "./contexts/HttpUpstreamContext";
-export { LocationContext } from "./contexts/LocationContext";
-export { MainContext } from "./contexts/MainContext";
+export { EventsContext } from "./contexts/EventsContext.js";
+export { HttpContext } from "./contexts/HttpContext.js";
+export { HttpServerContext } from "./contexts/HttpServerContext.js";
+export { HttpUpstreamContext } from "./contexts/HttpUpstreamContext.js";
+export { LocationContext } from "./contexts/LocationContext.js";
+export { MainContext } from "./contexts/MainContext.js";

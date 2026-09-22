@@ -1,4 +1,4 @@
-import { Volume } from "./Volume";
+import { Volume } from "./Volume.js";
 import { posix } from "path";
 
 function resolveSource(v: string | Volume | false) {

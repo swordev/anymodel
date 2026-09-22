@@ -2,6 +2,11 @@
   "name": "@anymodel/docker-compose",
   "version": "0.1.0",
   "description": "Docker Compose models.",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./*": "./lib/*"
+  },
   "scripts": {
     "build": "tsc -b",
     "clean": "tsc -b --clean",

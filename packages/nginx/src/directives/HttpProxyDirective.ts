@@ -1,6 +1,7 @@
-import { AbstractDirective, Config } from "./AbstractDirective";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpProxyDirectiveSpec = {
+export type HttpProxyDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_set_header
    */

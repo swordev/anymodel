@@ -2,11 +2,11 @@ import {
   IfContext,
   IfContextConfig,
   IfContextDirectiveSpec,
-} from "../contexts/IfContext";
-import { include } from "../util/require";
-import { AbstractDirective, Config } from "./AbstractDirective";
+} from "../contexts/IfContext.js";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpRewriteDirectiveSpec = {
+export type HttpRewriteDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#break
    */
@@ -15,8 +15,7 @@ export type HttpRewriteDirectiveSpec = {
    * @link https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#if
    */
   if?: (
-    | IfContext
-    | { config: IfContextConfig; spec: IfContextDirectiveSpec }
+    IfContext | { config: IfContextConfig; spec: IfContextDirectiveSpec }
   )[];
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return
@@ -52,11 +51,8 @@ export class HttpRewriteDirective extends AbstractDirective<HttpRewriteDirective
   static config: Config<HttpRewriteDirectiveSpec> = {
     break: (v) => "",
     if: (items) => {
-      const ns = include<{
-        IfContext: typeof IfContext;
-      }>("./../contexts/IfContext");
       return items.map((v) =>
-        v instanceof ns.IfContext ? v : new ns.IfContext(v.config, v.spec),
+        v instanceof IfContext ? v : new IfContext(v.config, v.spec),
       );
     },
     return: (v) => (Array.isArray(v) ? v : [v]).join(" "),

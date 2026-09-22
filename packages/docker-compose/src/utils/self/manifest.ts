@@ -1,8 +1,8 @@
-import { Config, Manifest } from "../../manifests/Config";
-import { Network } from "../../manifests/Network";
-import { Service } from "../../manifests/Service";
-import { Version } from "../../manifests/Version";
-import { Volume } from "../../manifests/Volume";
+import { Config, Manifest } from "../../manifests/Config.js";
+import { Network } from "../../manifests/Network.js";
+import { Service } from "../../manifests/Service.js";
+import { Version } from "../../manifests/Version.js";
+import { Volume } from "../../manifests/Volume.js";
 
 export function isManifest(manifest: unknown): manifest is Manifest {
   return (

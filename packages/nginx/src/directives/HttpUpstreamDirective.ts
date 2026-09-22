@@ -1,7 +1,8 @@
-import { HttpUpstreamContext } from "../contexts/HttpUpstreamContext";
-import { AbstractDirective, Config } from "./AbstractDirective";
+import { HttpUpstreamContext } from "../contexts/HttpUpstreamContext.js";
+import { AbstractDirective, Config } from "./AbstractDirective.js";
+import { CustomDirectiveSpec } from "./CustomDirective.js";
 
-export type HttpUpstreamDirectiveSpec = {
+export type HttpUpstreamDirectiveSpec = CustomDirectiveSpec & {
   /**
    * @link http://nginx.org/en/docs/http/ngx_http_upstream_module.html#server
    */

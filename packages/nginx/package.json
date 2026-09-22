@@ -2,6 +2,11 @@
   "name": "@anymodel/nginx",
   "version": "0.4.0",
   "description": "NGINX models.",
+  "type": "module",
+  "exports": {
+    ".": "./lib/index.js",
+    "./*": "./lib/*"
+  },
   "scripts": {
     "build": "tsc -b",
     "clean": "tsc -b --clean",

@@ -1,9 +1,9 @@
-import { EventsContext } from "./contexts/EventsContext";
-import { HttpContext } from "./contexts/HttpContext";
-import { HttpServerContext } from "./contexts/HttpServerContext";
-import { HttpUpstreamContext } from "./contexts/HttpUpstreamContext";
-import { LocationContext } from "./contexts/LocationContext";
-import { MainContext } from "./contexts/MainContext";
+import { EventsContext } from "./contexts/EventsContext.js";
+import { HttpContext } from "./contexts/HttpContext.js";
+import { HttpServerContext } from "./contexts/HttpServerContext.js";
+import { HttpUpstreamContext } from "./contexts/HttpUpstreamContext.js";
+import { LocationContext } from "./contexts/LocationContext.js";
+import { MainContext } from "./contexts/MainContext.js";
 
 export type AnyContext =
   | EventsContext

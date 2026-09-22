@@ -1,8 +1,8 @@
-import { validate } from "../utils/self/manifest";
-import { Network } from "./Network";
-import { Service } from "./Service";
-import { Version } from "./Version";
-import { Volume } from "./Volume";
+import { validate } from "../utils/self/manifest.js";
+import { Network } from "./Network.js";
+import { Service } from "./Service.js";
+import { Version } from "./Version.js";
+import { Volume } from "./Volume.js";
 
 export type Manifest = Version | Network | Volume | Service;
 
