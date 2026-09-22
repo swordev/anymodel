@@ -23,9 +23,9 @@ jobs:
       - run: pnpm test
       - uses: changesets/action@v2
         with:
-          commit: "chore: update versions"
-          title: Update versions
-          publish: pnpm publish -r --no-git-checks
+          commit-message: "chore: update versions"
+          pr-title: Update versions
+          publish-script: pnpm publish -r --no-git-checks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
