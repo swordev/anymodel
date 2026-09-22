@@ -1,5 +1,11 @@
 # @anymodel/nginx
 
+## 0.5.0
+
+### Minor Changes
+
+- [`b8f06b6`](https://github.com/swordev/anymodel/commit/b8f06b6dee37e9d26d8f9aab3fd572529d5a458f) Thanks [@juanrgm](https://github.com/juanrgm)! - Update deps
+
 ## 0.4.0
 
 ### Minor Changes
