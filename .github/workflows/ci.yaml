@@ -23,6 +23,10 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
+      - name: Configure npm authentication
+        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: changesets/action@v2
         with:
           commit-message: "chore: update versions"
