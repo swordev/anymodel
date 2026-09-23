@@ -1,5 +1,13 @@
 # @anymodel/nginx
 
+## 0.5.1
+
+### Patch Changes
+
+- [`75cd15c`](https://github.com/swordev/anymodel/commit/75cd15c670c29a9499f09f8030e0922fa6b40733) Thanks [@juanrgm](https://github.com/juanrgm)! - Fix package
+
+- [`47c3a5f`](https://github.com/swordev/anymodel/commit/47c3a5f04b67fbf0fc29d64c9b295edc170c9723) Thanks [@juanrgm](https://github.com/juanrgm)! - Allow array format
+
 ## 0.5.0
 
 ### Minor Changes
