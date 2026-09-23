@@ -7,8 +7,9 @@ env:
   NODE_VERSION: 24
   PNPM_VERSION: 12
 permissions:
-  id-token: write
   contents: write
+  pull-requests: write
+  id-token: write
 jobs:
   release:
     runs-on: ubuntu-latest
