@@ -1,5 +1,5 @@
 import { AbstractContext } from "../contexts/AbstractContext.js";
-import { formatValue } from "../utils/string.js";
+import { formatCustomDirective } from "../utils/string.js";
 
 export type Config<T> = Required<{
   [K in keyof T]:
@@ -52,14 +52,14 @@ export abstract class AbstractDirective<T> {
       .join("\n");
   }
 
-  toString(level = 0) {
+  toString(inLevel = 0) {
     const result: string[] = [];
     const config: Config<any> = (this as any)["constructor"]["config"];
+    const level = inLevel + 1;
     for (const key in this.spec) {
       if (key.startsWith("$")) {
-        const value = this.spec[key];
-        if (typeof value === "string")
-          result.push(formatValue(value, level + 1));
+        const value = this.spec[key] as any;
+        result.push(formatCustomDirective(value, level));
       } else {
         const value = AbstractDirective.renderValue(
           level,

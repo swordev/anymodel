@@ -1,6 +1,6 @@
 import { ContextDirectiveConfig, directiveMap } from "../Directive.js";
 import { AbstractDirective, Config } from "../directives/AbstractDirective.js";
-import { formatValue } from "../utils/string.js";
+import { formatCustomDirective } from "../utils/string.js";
 
 export class AbstractContext<TSpec, TConfig = void> {
   type!: string;
@@ -69,9 +69,8 @@ export class AbstractContext<TSpec, TConfig = void> {
           if (item && typeof item === "object") {
             for (const key in item) {
               if (key.startsWith("$")) {
-                const value = item[key];
-                if (typeof value === "string")
-                  result.push(formatValue(value, level));
+                const value = item[key] as any;
+                result.push(formatCustomDirective(value, level));
               } else {
                 const config = this.findDirectiveConfig(key);
                 const value = AbstractDirective.renderValue(

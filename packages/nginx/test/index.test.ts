@@ -15,14 +15,14 @@ describe("MainContext", () => {
                 {
                   config: "/",
                   spec: {
-                    $line3: "# line 3",
+                    $line3: ["# line 3"],
                   },
                 },
               ],
-              $line4: "# line 4",
+              $line4: [false, "# line 4"],
             },
           ],
-          $line5: "# line 5",
+          $line5: [null, undefined, false, "# line 5"],
         },
       ],
       $line6: "# line 6",
