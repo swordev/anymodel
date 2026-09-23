@@ -1,4 +1,4 @@
-import { MainContext } from "./../src/index.js";
+import { MainContext } from "../src/index.js";
 import { describe, expect, it } from "vitest";
 
 describe("MainContext", () => {

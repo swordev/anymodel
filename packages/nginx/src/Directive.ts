@@ -11,7 +11,6 @@ import { HttpProxyDirective } from "./directives/HttpProxyDirective.js";
 import { HttpRewriteDirective } from "./directives/HttpRewriteDirective.js";
 import { HttpSslDirective } from "./directives/HttpSslDirective.js";
 import { HttpUpstreamDirective } from "./directives/HttpUpstreamDirective.js";
-import { ElementOf } from "ts-essentials";
 
 export const directiveMap = {
   [CoreDirective.type]: CoreDirective,
@@ -54,6 +53,9 @@ export function makeContextDirectiveConfig<T extends ContextDirectiveConfig>(
 ): typeof options {
   return options as any;
 }
+
+export declare type ElementOf<Type extends readonly any[]> =
+  Type extends readonly (infer Values)[] ? Values : never;
 
 export type PickDirectiveKeys<
   TConfig extends ContextDirectiveConfig,

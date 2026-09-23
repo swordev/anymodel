@@ -1,9 +1,10 @@
 {
   "name": "anymodel",
   "private": true,
-  "homepage": "https://github.com/swordev/anymodel#readme",
+  "homepage": "https://github.com/swordev/anymodel",
   "bugs": {
-    "url": "https://github.com/swordev/anymodel/issues"
+    "url": "https://github.com/swordev/anymodel/issues",
+    "email": "juanrgm724@gmail.com"
   },
   "repository": {
     "type": "git",
@@ -16,55 +17,33 @@
     "url": "https://github.com/juanrgm"
   },
   "type": "module",
+  "files": [
+    "lib"
+  ],
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "check": "pnpm format",
     "check:format": "prettier -c .",
-    "clean": "wspa clean",
-    "compose": "wspa compose",
+    "clean:ts": "tsc -b tsconfig.build.json --clean",
     "format": "prettier -w .",
-    "postinstall": "pnpm compose",
+    "postinstall": "workspace gen",
     "test": "vitest --run",
     "watch": "tsc -b tsconfig.build.json -w"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
+    "@dreamkit/workspace": "^0.4.0",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@tsconfig/node20": "^20.1.10",
     "@types/node": "^26.6.2",
-    "@wspa/config": "^0.3.1",
     "prettier": "3.9.8",
     "prettier-plugin-packagejson": "^3.0.2",
     "prettier-plugin-sort-json": "^4.2.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.1",
-    "wspa": "^0.6.0"
+    "vitest": "^5.0.1"
   },
   "engine": {
     "node": ">=20.0.0"
-  },
-  "x-wspa": {
-    "extends": "@wspa/config/auto.js",
-    "pkgManifest": {
-      "homepage": "https://github.com/swordev/anymodel",
-      "bugs": {
-        "url": "https://github.com/swordev/anymodel/issues",
-        "email": "juanrgm724@gmail.com"
-      },
-      "repository": {
-        "type": "git",
-        "url": "https://github.com/swordev/anymodel"
-      },
-      "license": "MIT",
-      "author": {
-        "name": "Juanra GM",
-        "email": "juanrgm724@gmail.com",
-        "url": "https://github.com/juanrgm"
-      },
-      "engine": {
-        "node": ">=20.0.0"
-      }
-    }
   }
 }

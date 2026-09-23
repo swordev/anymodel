@@ -1,11 +1,7 @@
 {
-  "files": [],
+  "include": [],
   "references": [
-    {
-      "path": "packages/docker-compose"
-    },
-    {
-      "path": "packages/nginx"
-    }
+    { "path": "./packages/docker-compose/tsconfig.build.json" },
+    { "path": "./packages/nginx/tsconfig.build.json" }
   ]
 }

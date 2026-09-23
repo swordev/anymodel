@@ -1,0 +1,5 @@
+{
+  "compilerOptions": { "composite": true, "outDir": "lib" },
+  "extends": ["@tsconfig/node20"],
+  "include": ["src"]
+}
