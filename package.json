@@ -6,26 +6,26 @@
     "url": "https://github.com/swordev/anymodel/issues",
     "email": "juanrgm724@gmail.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/swordev/anymodel"
-  },
   "license": "MIT",
   "author": {
     "name": "Juanra GM",
     "email": "juanrgm724@gmail.com",
     "url": "https://github.com/juanrgm"
   },
-  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swordev/anymodel"
+  },
   "files": [
     "lib"
   ],
+  "type": "module",
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "check": "pnpm format",
-    "check:format": "prettier -c .",
+    "check:format": "oxfmt --check",
     "clean:ts": "tsc -b tsconfig.build.json --clean",
-    "format": "prettier -w .",
+    "format": "oxfmt",
     "postinstall": "workspace gen",
     "test": "vitest --run",
     "watch": "tsc -b tsconfig.build.json -w"
@@ -34,12 +34,9 @@
     "@changesets/changelog-github": "^1.0.1",
     "@changesets/cli": "^3.0.3",
     "@dreamkit/workspace": "^0.4.0",
-    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@tsconfig/node20": "^20.1.10",
     "@types/node": "^26.6.2",
-    "prettier": "3.9.8",
-    "prettier-plugin-packagejson": "^3.0.2",
-    "prettier-plugin-sort-json": "^4.2.0",
+    "oxfmt": "^0.70.0",
     "typescript": "^7.0.2",
     "vitest": "^5.0.1"
   },

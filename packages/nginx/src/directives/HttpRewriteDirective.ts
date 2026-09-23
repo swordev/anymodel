@@ -15,7 +15,8 @@ export type HttpRewriteDirectiveSpec = CustomDirectiveSpec & {
    * @link https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#if
    */
   if?: (
-    IfContext | { config: IfContextConfig; spec: IfContextDirectiveSpec }
+    | IfContext
+    | { config: IfContextConfig; spec: IfContextDirectiveSpec }
   )[];
   /**
    * @link https://nginx.org/en/docs/http/ngx_http_rewrite_module.html#return

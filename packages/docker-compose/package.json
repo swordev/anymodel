@@ -7,24 +7,24 @@
     "url": "https://github.com/swordev/anymodel/issues",
     "email": "juanrgm724@gmail.com"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/swordev/anymodel"
-  },
   "license": "MIT",
   "author": {
     "name": "Juanra GM",
     "email": "juanrgm724@gmail.com",
     "url": "https://github.com/juanrgm"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swordev/anymodel"
+  },
+  "files": [
+    "lib"
+  ],
   "type": "module",
   "exports": {
     ".": "./lib/index.js",
     "./*": "./lib/*"
   },
-  "files": [
-    "lib"
-  ],
   "scripts": {
     "build": "tsc -b",
     "clean": "tsc -b --clean",

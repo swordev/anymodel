@@ -1,5 +1,0 @@
-pnpm-lock.yaml
-# .gitignore
-node_modules
-packages/*/lib
-packages/*/tsconfig.tsbuildinfo
