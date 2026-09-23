@@ -3,12 +3,12 @@ on:
   push:
     branches:
       - main
-permissions:
-  contents: write
-  pull-requests: write
 env:
-  NODE_VERSION: 22
+  NODE_VERSION: 24
   PNPM_VERSION: 12
+permissions:
+  id-token: write
+  contents: write
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -24,15 +24,9 @@ jobs:
       - run: pnpm install
       - run: pnpm build
       - run: pnpm test
-      - name: Configure npm authentication
-        run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
       - uses: changesets/action@v2
         with:
           commit-message: "chore: update versions"
           pr-title: Update versions
-          publish-script: pnpm publish -r --no-git-checks
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
