@@ -1,5 +1,11 @@
 # @anymodel/docker-compose
 
+## 0.2.2
+
+### Patch Changes
+
+- [`f67ba1d`](https://github.com/swordev/anymodel/commit/f67ba1dd54ec3eb5fa45240e5dbc74da14bc4279) Thanks [@juanrgm](https://github.com/juanrgm)! - Fix publish
+
 ## 0.2.1
 
 ### Patch Changes
