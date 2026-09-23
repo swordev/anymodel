@@ -13,6 +13,7 @@ export default defineConfig(({ pkg, packages }) => {
           include: ["src"],
           compilerOptions: {
             outDir: "lib",
+            rootDir: "src",
           },
         },
         base: {
