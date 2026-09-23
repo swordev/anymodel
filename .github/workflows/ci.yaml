@@ -28,5 +28,6 @@ jobs:
         with:
           commit-message: "chore: update versions"
           pr-title: Update versions
+          publish-script: pnpm run publish
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

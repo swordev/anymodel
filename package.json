@@ -23,6 +23,7 @@
   "scripts": {
     "build": "tsc -b tsconfig.build.json",
     "check": "pnpm format",
+    "publish": "changeset publish",
     "check:format": "oxfmt --check",
     "clean:ts": "tsc -b tsconfig.build.json --clean",
     "format": "oxfmt",
