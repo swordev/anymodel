@@ -1,6 +1,6 @@
 {
   "name": "@anymodel/nginx",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "NGINX models.",
   "homepage": "https://github.com/swordev/anymodel",
   "bugs": {
